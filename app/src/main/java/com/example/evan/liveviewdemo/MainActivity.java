@@ -22,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
     private DataAdapter mAdapter=null;
     private Context mContext;
 
+
     private void initView(){
         mContext=MainActivity.this;
         listView=(ListView) findViewById(R.id.ListView);
         mData=new LinkedList<Data>();
-        initData(mData);
+        initData(mData);    //加载数据
         mAdapter=new DataAdapter((LinkedList<Data>)mData,mContext);
         listView.setAdapter(mAdapter);
     }
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i<20;i++){
             mData.add(new Data("Title "+i,"Content "+i,R.drawable.xhr));
         }
+        mData.add(new Data("Title20","fail",R.drawable.xhr));
+        mData.add(new Data("Title21","pass",R.drawable.xhr));
     }
 
     @Override
