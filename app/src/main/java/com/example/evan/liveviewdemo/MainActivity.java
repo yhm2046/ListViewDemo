@@ -16,13 +16,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * 主体方法
+ */
 public class MainActivity extends AppCompatActivity {
-    private ListView listView;
-    private List<Data> mData=null;
-    private DataAdapter mAdapter=null;
-    private Context mContext;
+    private ListView listView;  //lv控件
+    private List<Data> mData=null;  //数据结构组
+    private DataAdapter mAdapter=null;  //适配器
+    private Context mContext;   //内容
 
-
+    /**
+     * 初始化控件
+     */
     private void initView(){
         mContext=MainActivity.this;
         listView=(ListView) findViewById(R.id.ListView);
@@ -31,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         mAdapter=new DataAdapter((LinkedList<Data>)mData,mContext);
         listView.setAdapter(mAdapter);
     }
+
+    /**
+     *  初始化数据
+     * @param mData 数据结构内容
+     */
 
     private void initData(List<Data> mData) {
         for (int i=0;i<20;i++){

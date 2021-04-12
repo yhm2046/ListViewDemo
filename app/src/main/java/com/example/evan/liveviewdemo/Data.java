@@ -2,6 +2,7 @@ package com.example.evan.liveviewdemo;
 
 /**
  * Created by evan on 2019/11/9.
+ * 数据类，标题，内容，图标
  */
 
 public class Data {

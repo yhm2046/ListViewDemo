@@ -13,6 +13,7 @@ import java.util.LinkedList;
 
 /**
  * Created by evan on 2019/11/9.
+ * 适配器类
  */
 
 public class DataAdapter extends BaseAdapter {
@@ -37,20 +38,24 @@ public class DataAdapter extends BaseAdapter {
         return i;
     }
 
+    /**
+     * 具体处理数据方法
+     * @param position  位置编号
+     * @param convertView   具体对象
+     * @param parent    父对象
+     * @return
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder=null;
-//        View view;
         if(null==convertView){
             holder=new ViewHolder();
             convertView= LayoutInflater.from(mContext).inflate(R.layout.list_items,parent,false);
-
             holder.mTitlem=convertView.findViewById(R.id.ItemTitle);
             holder.mContent=convertView.findViewById(R.id.ItemText);
             holder.mIcon=convertView.findViewById(R.id.ItemImage);
             convertView.setTag(holder);
         }else {
-//            view = convertView;
             holder=(ViewHolder)convertView.getTag();
         }
         String titletxt=mData.get(position).getdTitle();
@@ -67,7 +72,7 @@ public class DataAdapter extends BaseAdapter {
         holder.mIcon.setBackgroundResource(mData.get(position).getdIcon());
         holder.mContent.setText(mData.get(position).getdContent());
         return convertView;
-    }
+    }//end getView
     private static class ViewHolder{
         public TextView mTitlem;
         public TextView mContent;
